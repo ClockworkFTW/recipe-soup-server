@@ -15,10 +15,10 @@ async function seed() {
       prepTime: "PT30M",
       cookTime: "PT15M",
       ingredients: [
-        { text: "steak" },
-        { text: "onions" },
-        { text: "cheese" },
-        { text: "tortilla" },
+        { text: "steak", index: 0 },
+        { text: "onions", index: 1 },
+        { text: "cheese", index: 2 },
+        { text: "tortilla", index: 3 },
       ],
       instructions: [
         { type: "step", index: 0, text: "cook the steak" },
@@ -37,10 +37,10 @@ async function seed() {
       prepTime: "PT10M",
       cookTime: "PT10M",
       ingredients: [
-        { text: "pasta" },
-        { text: "tomato sauce" },
-        { text: "cheese" },
-        { text: "basil" },
+        { text: "pasta", index: 0 },
+        { text: "tomato sauce", index: 1 },
+        { text: "cheese", index: 2 },
+        { text: "basil", index: 3 },
       ],
       instructions: [
         { type: "step", index: 0, text: "cook the pasta" },
@@ -58,10 +58,10 @@ async function seed() {
       prepTime: "PT40M",
       cookTime: "PT20M",
       ingredients: [
-        { text: "dough" },
-        { text: "tomato sauce" },
-        { text: "cheese" },
-        { text: "pepperoni" },
+        { text: "dough", index: 0 },
+        { text: "tomato sauce", index: 1 },
+        { text: "cheese", index: 2 },
+        { text: "pepperoni", index: 3 },
       ],
       instructions: [
         { type: "step", index: 0, text: "form the doug into a circle" },

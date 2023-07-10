@@ -5,6 +5,13 @@ export default (sequelize, { DataTypes }) => {
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
+    index: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
     text: {
       type: DataTypes.STRING,
       allowNull: false,
