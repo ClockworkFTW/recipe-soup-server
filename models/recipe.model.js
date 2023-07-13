@@ -12,7 +12,7 @@ export default (sequelize, { DataTypes }) => {
         notEmpty: true,
       },
     },
-    notes: {
+    description: {
       type: DataTypes.STRING,
     },
     cookTime: {
@@ -20,6 +20,18 @@ export default (sequelize, { DataTypes }) => {
     },
     prepTime: {
       type: DataTypes.STRING,
+    },
+    cuisine: {
+      type: DataTypes.STRING,
+    },
+    category: {
+      type: DataTypes.STRING,
+    },
+    rating: {
+      type: DataTypes.INTEGER,
+    },
+    servings: {
+      type: DataTypes.INTEGER,
     },
   });
 

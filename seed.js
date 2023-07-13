@@ -26,6 +26,10 @@ async function seed() {
         { type: "step", index: 2, text: "melt the cheese" },
         { type: "step", index: 3, text: "build the taco" },
       ],
+      cuisine: "Mexican",
+      category: "Dinner",
+      rating: 4,
+      servings: 6,
       userId,
     },
     { include: [models.Ingredient, models.Instruction] }
@@ -47,6 +51,10 @@ async function seed() {
         { type: "step", index: 1, text: "heat the tomato sauce" },
         { type: "step", index: 2, text: "combine the pasta, cheese and basil" },
       ],
+      cuisine: "Italian",
+      category: "Dinner",
+      rating: 3,
+      servings: 4,
       userId,
     },
     { include: [models.Ingredient, models.Instruction] }
@@ -73,6 +81,10 @@ async function seed() {
         { type: "step", index: 2, text: "add cheese and pepperonis to taste" },
         { type: "step", index: 3, text: "bake the pizza for 15 minutes" },
       ],
+      cuisine: "Italian",
+      category: "Dinner",
+      rating: 5,
+      servings: 8,
       userId,
     },
     { include: [models.Ingredient, models.Instruction] }
