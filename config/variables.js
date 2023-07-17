@@ -2,6 +2,28 @@ const port = process.env.PORT;
 
 const environment = process.env.NODE_ENV;
 
+const corsOptions = {
+  origin: "http://localhost:5173",
+  credentials: true,
+};
+
+const jwt = {
+  access: {
+    secret: process.env.ACCESS_TOKEN_SECRET,
+    duration: "15m",
+  },
+  refresh: {
+    secret: process.env.REFRESH_TOKEN_SECRET,
+    duration: "7d",
+    cookieOptions: {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    },
+  },
+};
+
 const postgres =
   environment === "production"
     ? {
@@ -22,5 +44,7 @@ const postgres =
 export default {
   port,
   environment,
+  corsOptions,
+  jwt,
   postgres,
 };

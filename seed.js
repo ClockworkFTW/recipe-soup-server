@@ -4,7 +4,7 @@ async function seed() {
   const user = await models.User.create({
     username: "Nik Boyle",
     email: "nikolasboyle@gmail.com",
-    password: "#Trinity13",
+    password: "$2b$10$5DB3xu81xHFWiiYnt5AK7uX6ZwwmwNhUTKoC9lzNhLPE4eoeleo6S",
   });
 
   const userId = user.toJSON().id;

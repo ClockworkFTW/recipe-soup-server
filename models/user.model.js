@@ -27,6 +27,16 @@ export default (sequelize, { DataTypes }) => {
         notEmpty: true,
       },
     },
+    isVerified: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+      allowNull: false,
+    },
+    isPremium: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+      allowNull: false,
+    },
   });
 
   User.associate = (models) => {
