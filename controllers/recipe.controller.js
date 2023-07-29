@@ -14,6 +14,9 @@ async function getRecipe(req, res) {
 }
 
 async function createRecipe(req, res) {
+  console.log("file", req.file);
+  console.log("body", req.body);
+
   const recipe = await models.Recipe.create(req.body);
 
   // Strip client ID's and assign recipe ID
@@ -34,6 +37,9 @@ async function createRecipe(req, res) {
 }
 
 async function updateRecipe(req, res) {
+  console.log("file", req.file);
+  console.log("body", req.body);
+
   const { recipeId } = req.params;
 
   const recipe = models.Recipe.findByPk(recipeId);

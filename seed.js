@@ -14,6 +14,7 @@ async function seed() {
       name: "Tacos",
       prepTime: "PT30M",
       cookTime: "PT15M",
+      image: { url: "https://shorturl.at/ewAR0" },
       ingredients: [
         { text: "steak", index: 0 },
         { text: "onions", index: 1 },
@@ -32,7 +33,7 @@ async function seed() {
       servings: 6,
       userId,
     },
-    { include: [models.Ingredient, models.Instruction] }
+    { include: [models.Image, models.Ingredient, models.Instruction] }
   );
 
   await models.Recipe.create(
@@ -40,6 +41,7 @@ async function seed() {
       name: "Spaghetti",
       prepTime: "PT10M",
       cookTime: "PT10M",
+      image: { url: "https://shorturl.at/fJVY4" },
       ingredients: [
         { text: "pasta", index: 0 },
         { text: "tomato sauce", index: 1 },
@@ -57,7 +59,7 @@ async function seed() {
       servings: 4,
       userId,
     },
-    { include: [models.Ingredient, models.Instruction] }
+    { include: [models.Image, models.Ingredient, models.Instruction] }
   );
 
   await models.Recipe.create(
@@ -65,6 +67,7 @@ async function seed() {
       name: "Pizza",
       prepTime: "PT40M",
       cookTime: "PT20M",
+      image: { url: "https://shorturl.at/koyGL" },
       ingredients: [
         { text: "dough", index: 0 },
         { text: "tomato sauce", index: 1 },
@@ -87,7 +90,7 @@ async function seed() {
       servings: 8,
       userId,
     },
-    { include: [models.Ingredient, models.Instruction] }
+    { include: [models.Image, models.Ingredient, models.Instruction] }
   );
 }
 
