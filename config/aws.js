@@ -1,9 +1,42 @@
-import aws from "aws-sdk";
+import {
+  S3Client,
+  PutObjectCommand,
+  DeleteObjectCommand,
+} from "@aws-sdk/client-s3";
+
 import variables from "./variables.js";
 
-aws.config.update({
-  secretAccessKey: variables.aws.secretAccessKey,
-  accessKeyId: variables.aws.accessKeyId,
+const { secretAccessKey, accessKeyId, region, bucket } = variables.aws;
+
+const client = new S3Client({
+  secretAccessKey,
+  accessKeyId,
+  region,
 });
 
-export const s3 = new aws.S3({ region: variables.aws.region });
+export async function uploadFile({ body, key }) {
+  const input = {
+    Bucket: bucket,
+    Body: body,
+    Key: key,
+  };
+
+  const command = new PutObjectCommand(input);
+
+  await client.send(command);
+
+  const url = `https://${bucket}.s3.${region}.amazonaws.com/${key}`;
+
+  return { bucket, key, url };
+}
+
+export async function deleteFile({ bucket, key }) {
+  const input = {
+    Bucket: bucket,
+    Key: key,
+  };
+
+  const command = new DeleteObjectCommand(input);
+
+  await client.send(command);
+}

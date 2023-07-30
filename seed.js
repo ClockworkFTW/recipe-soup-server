@@ -14,7 +14,11 @@ async function seed() {
       name: "Tacos",
       prepTime: "PT30M",
       cookTime: "PT15M",
-      image: { url: "https://shorturl.at/ewAR0" },
+      image: {
+        bucket: "jnb-recipe-book-bucket",
+        key: "image/3ff598dc-743d-4749-b305-9f618a1cd2bb.jpg",
+        url: "https://jnb-recipe-book-bucket.s3.us-west-1.amazonaws.com/image/3ff598dc-743d-4749-b305-9f618a1cd2bb.jpg",
+      },
       ingredients: [
         { text: "steak", index: 0 },
         { text: "onions", index: 1 },
@@ -41,7 +45,11 @@ async function seed() {
       name: "Spaghetti",
       prepTime: "PT10M",
       cookTime: "PT10M",
-      image: { url: "https://shorturl.at/fJVY4" },
+      image: {
+        bucket: "jnb-recipe-book-bucket",
+        key: "image/2c88943c-2acd-49a2-abe1-075c9e5495a9.jpg",
+        url: "https://jnb-recipe-book-bucket.s3.us-west-1.amazonaws.com/image/2c88943c-2acd-49a2-abe1-075c9e5495a9.jpg",
+      },
       ingredients: [
         { text: "pasta", index: 0 },
         { text: "tomato sauce", index: 1 },
@@ -67,7 +75,11 @@ async function seed() {
       name: "Pizza",
       prepTime: "PT40M",
       cookTime: "PT20M",
-      image: { url: "https://shorturl.at/koyGL" },
+      image: {
+        bucket: "jnb-recipe-book-bucket",
+        key: "image/634701bc-0ff9-4bfa-a74c-3be007161ce3.jpg",
+        url: "https://jnb-recipe-book-bucket.s3.us-west-1.amazonaws.com/image/634701bc-0ff9-4bfa-a74c-3be007161ce3.jpg",
+      },
       ingredients: [
         { text: "dough", index: 0 },
         { text: "tomato sauce", index: 1 },

@@ -37,9 +37,9 @@ export default (sequelize, { DataTypes }) => {
 
   Recipe.associate = (models) => {
     Recipe.belongsTo(models.User);
-    Recipe.hasOne(models.Image);
-    Recipe.hasMany(models.Ingredient);
-    Recipe.hasMany(models.Instruction);
+    Recipe.hasOne(models.Image, { onDelete: "cascade", hooks: true });
+    Recipe.hasMany(models.Ingredient, { onDelete: "cascade" });
+    Recipe.hasMany(models.Instruction, { onDelete: "cascade" });
   };
 
   return Recipe;

@@ -1,4 +1,5 @@
 import models from "../config/postgres.js";
+import { uploadFile } from "../config/aws.js";
 
 async function getRecipes(req, res) {
   const recipes = await models.Recipe.findAll();
@@ -14,32 +15,32 @@ async function getRecipe(req, res) {
 }
 
 async function createRecipe(req, res) {
-  console.log("file", req.file);
-  console.log("body", req.body);
-
   const recipe = await models.Recipe.create(req.body);
+
+  const recipeId = recipe.id;
 
   // Strip client ID's and assign recipe ID
   const ingredients = req.body.ingredients.map(({ id, ...ingredient }) => ({
     ...ingredient,
-    recipeId: recipe.id,
+    recipeId,
   }));
   const instructions = req.body.instructions.map(({ id, ...instruction }) => ({
     ...instruction,
-    recipeId: recipe.id,
+    recipeId,
   }));
 
   // Create new ingredients and instructions
   await models.Ingredient.bulkCreate(ingredients);
   await models.Instruction.bulkCreate(instructions);
 
-  res.send({ id: recipe.id });
+  // Create image
+  const imageData = await uploadFile(req.image);
+  await models.Image.create({ ...imageData, recipeId });
+
+  res.send({ id: recipeId });
 }
 
 async function updateRecipe(req, res) {
-  console.log("file", req.file);
-  console.log("body", req.body);
-
   const { recipeId } = req.params;
 
   const recipe = models.Recipe.findByPk(recipeId);
@@ -67,6 +68,13 @@ async function updateRecipe(req, res) {
   // Create new ingredients and instructions
   await models.Ingredient.bulkCreate(ingredients);
   await models.Instruction.bulkCreate(instructions);
+
+  // Create image
+  if (req.image) {
+    const imageData = await uploadFile(req.image);
+    await models.Image.destroy({ where: { recipeId }, individualHooks: true });
+    await models.Image.create({ ...imageData, recipeId });
+  }
 
   res.send({ id: recipeId });
 }

@@ -40,7 +40,7 @@ export default (sequelize, { DataTypes }) => {
   });
 
   User.associate = (models) => {
-    User.hasMany(models.Recipe, { onDelete: "CASCADE" });
+    User.hasMany(models.Recipe, { onDelete: "cascade" });
   };
 
   return User;

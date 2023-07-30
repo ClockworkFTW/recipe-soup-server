@@ -1,29 +1,25 @@
 import busboy from "busboy";
+import { v4 as uuidv4 } from "uuid";
 
-function upload(req, res, next) {
-  console.log(req.headers);
+function parseRecipe(req, res, next) {
   const bb = busboy({ headers: req.headers });
 
   bb.on("file", (name, file, info) => {
     const chunks = [];
 
-    const { filename, encoding, mimeType } = info;
+    const [fileType, fileExtension] = info.mimeType.split("/");
 
     // TODO: validate file type and size
-
-    console.log(
-      `File [${name}]: filename: %j, encoding: %j, mimeType: %j`,
-      filename,
-      encoding,
-      mimeType
-    );
 
     file.on("data", (data) => {
       chunks.push(data);
     });
 
     file.on("close", () => {
-      req.file = Buffer.concat(chunks);
+      req.image = {
+        body: Buffer.concat(chunks),
+        key: `${fileType}/${uuidv4()}.${fileExtension}`,
+      };
     });
   });
 
@@ -38,4 +34,4 @@ function upload(req, res, next) {
   req.pipe(bb);
 }
 
-export default upload;
+export default parseRecipe;
