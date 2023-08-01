@@ -15,6 +15,9 @@ export default (sequelize, { DataTypes }) => {
     description: {
       type: DataTypes.STRING,
     },
+    assemblyTime: {
+      type: DataTypes.STRING,
+    },
     cookTime: {
       type: DataTypes.STRING,
     },

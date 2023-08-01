@@ -20,7 +20,7 @@ export default (sequelize, { DataTypes }) => {
       },
     },
     text: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
       validate: {
         notEmpty: true,
