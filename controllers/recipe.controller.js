@@ -6,12 +6,21 @@ async function getRecipes(req, res) {
   res.send(recipes);
 }
 
+// TODO: get only image url
 async function getRecipe(req, res) {
   const { recipeId } = req.params;
+
   const recipe = await models.Recipe.findByPk(recipeId, {
-    include: { all: true },
+    include: [models.Ingredient, models.Instruction],
   });
-  res.send(recipe);
+
+  if (!recipe) {
+    throw new Error("Recipe not found");
+  }
+
+  const { url } = await models.Image.findOne({ where: { recipeId } });
+
+  res.send({ ...recipe.toJSON(), image: url });
 }
 
 async function createRecipe(req, res) {
