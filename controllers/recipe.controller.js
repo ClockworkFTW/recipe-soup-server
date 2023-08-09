@@ -6,12 +6,15 @@ async function getRecipes(req, res) {
   res.send(recipes);
 }
 
-// TODO: get only image url
 async function getRecipe(req, res) {
   const { recipeId } = req.params;
 
   const recipe = await models.Recipe.findByPk(recipeId, {
     include: [models.Ingredient, models.Instruction],
+    order: [
+      [models.Ingredient, "index", "ASC"],
+      [models.Instruction, "index", "ASC"],
+    ],
   });
 
   if (!recipe) {

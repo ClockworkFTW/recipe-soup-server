@@ -14,7 +14,6 @@ async function seed() {
       name: "Birria Tacos",
       prepTime: "PT20M",
       cookTime: "PT3H30M",
-      assemblyTime: "PT15M",
       image: {
         bucket: "jnb-recipe-book-bucket",
         key: "image/3ff598dc-743d-4749-b305-9f618a1cd2bb.jpg",

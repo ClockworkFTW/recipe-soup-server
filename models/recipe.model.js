@@ -15,19 +15,13 @@ export default (sequelize, { DataTypes }) => {
     description: {
       type: DataTypes.STRING,
     },
-    assemblyTime: {
+    cuisine: {
       type: DataTypes.STRING,
     },
     cookTime: {
       type: DataTypes.STRING,
     },
     prepTime: {
-      type: DataTypes.STRING,
-    },
-    cuisine: {
-      type: DataTypes.STRING,
-    },
-    category: {
       type: DataTypes.STRING,
     },
     rating: {
