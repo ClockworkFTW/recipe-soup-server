@@ -3,7 +3,17 @@ import { uploadFile } from "../config/aws.js";
 
 async function getRecipes(req, res) {
   const recipes = await models.Recipe.findAll();
-  res.send(recipes);
+
+  const test = await Promise.all(
+    recipes.map(async (recipe) => {
+      const { url } = await models.Image.findOne({
+        where: { recipeId: recipe.id },
+      });
+      return { ...recipe.toJSON(), image: url };
+    })
+  );
+
+  res.send(test);
 }
 
 async function getRecipe(req, res) {
