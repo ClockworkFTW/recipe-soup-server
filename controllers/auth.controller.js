@@ -5,7 +5,7 @@ import authService from "../services/auth.service.js";
 import mailer from "../config/mailer.js";
 
 async function register(req, res) {
-  const { email, passwordA, passwordB } = req.body;
+  const { username, email, passwordA, passwordB } = req.body;
 
   if (passwordA !== passwordB) {
     throw new Error("Passwords do not match");
@@ -19,13 +19,13 @@ async function register(req, res) {
 
   const password = await bcrypt.hash(passwordA, 10);
 
-  const user = await models.User.create({ email, password });
+  const user = await models.User.create({ username, email, password });
 
   const accessToken = authService.generateToken({ type: "access", user });
   const refreshToken = authService.generateToken({ type: "refresh", user });
   const verifyToken = authService.generateToken({ type: "verify", user });
 
-  await mailer.sendVerificationLink({ to: email, token: verifyToken });
+  await mailer.sendVerificationLink({ user, token: verifyToken });
 
   res.cookie("jwt", refreshToken, variables.jwt.refresh.cookieOptions);
 
@@ -117,7 +117,7 @@ async function forgotPassword(req, res) {
 
   const resetToken = authService.generateToken({ type: "reset", user });
 
-  await mailer.sendResetLink({ to: email, token: resetToken });
+  await mailer.sendResetLink({ user, token: resetToken });
 
   res.send({ message: "password reset link sent" });
 }

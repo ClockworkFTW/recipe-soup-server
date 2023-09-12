@@ -8,6 +8,7 @@ function generateToken({ type, user }) {
   const payload = { sub: user.id, type };
 
   if (type === "access") {
+    payload.username = user.username;
     payload.isVerified = user.isVerified;
   }
 

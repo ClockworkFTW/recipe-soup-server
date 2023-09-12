@@ -7,7 +7,8 @@ async function seed() {
 
   await models.User.create({
     id: userId,
-    email: "test@email.com",
+    username: "Demo",
+    email: "demo@email.com",
     password: "$2b$10$FGVk6x/sZ2Fe99SEu3nF6uYJDovlxWHAAjOLiE0HUU4O/3B/OJwLC",
   });
 
