@@ -1,58 +1,35 @@
 import jwt from "jsonwebtoken";
 import variables from "../config/variables.js";
 
-function generateAccessToken(user) {
-  const { secret, duration } = variables.jwt.access;
-  const token = jwt.sign(
-    {
-      userId: user.id,
-      username: user.username,
-      isVerified: user.isVerified,
-      isPremium: user.isPremium,
-    },
-    secret,
-    { expiresIn: duration }
-  );
-  return token;
-}
+function generateToken({ type, user }) {
+  const { secret, duration } = variables.jwt[type];
 
-function generateRefreshToken(user) {
-  const { secret, duration } = variables.jwt.refresh;
-  const token = jwt.sign(
-    {
-      userId: user.id,
-    },
-    secret,
-    { expiresIn: duration }
-  );
-  return token;
-}
+  const options = { expiresIn: duration };
+  const payload = { sub: user.id, type };
 
-function verifyAccessToken(token) {
-  try {
-    const { secret } = variables.jwt.access;
-    const payload = jwt.verify(token, secret);
-    return payload;
-  } catch (error) {
-    throw new Error("Invalid access token");
+  if (type === "access") {
+    payload.isVerified = user.isVerified;
   }
+
+  const token = jwt.sign(payload, secret, options);
+  return token;
 }
 
-function verifyRefreshToken(token) {
+function verifyToken({ type, token }) {
   try {
-    const { secret } = variables.jwt.refresh;
+    const { secret } = variables.jwt[type];
+
     const payload = jwt.verify(token, secret);
+
     return payload;
   } catch (error) {
-    throw new Error("Invalid refresh token");
+    throw new Error("Invalid token");
   }
 }
 
 const service = {
-  generateAccessToken,
-  generateRefreshToken,
-  verifyAccessToken,
-  verifyRefreshToken,
+  generateToken,
+  verifyToken,
 };
 
 export default service;

@@ -3,7 +3,7 @@ import "dotenv/config";
 import app from "./config/app.js";
 import variables from "./config/variables.js";
 import { sequelize } from "./config/postgres.js";
-import seed from "./seed.js";
+import seed from "./data/seed.js";
 
 const eraseDatabaseOnSync = true;
 

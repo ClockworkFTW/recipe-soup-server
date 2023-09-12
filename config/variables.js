@@ -22,6 +22,14 @@ const jwt = {
       maxAge: 7 * 24 * 60 * 60 * 1000,
     },
   },
+  verify: {
+    secret: process.env.VERIFY_TOKEN_SECRET,
+    duration: "1h",
+  },
+  reset: {
+    secret: process.env.RESET_TOKEN_SECRET,
+    duration: "15m",
+  },
 };
 
 const postgres =
@@ -48,6 +56,11 @@ const aws = {
   bucket: process.env.AWS_S3_BUCKET,
 };
 
+const mailer = {
+  username: process.env.EMAIL_USERNAME,
+  password: process.env.EMAIL_PASSWORD,
+};
+
 export default {
   port,
   environment,
@@ -55,4 +68,5 @@ export default {
   jwt,
   postgres,
   aws,
+  mailer,
 };
