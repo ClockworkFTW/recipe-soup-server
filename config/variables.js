@@ -3,7 +3,10 @@ const port = process.env.PORT;
 const environment = process.env.NODE_ENV;
 
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin:
+    environment === "production"
+      ? "https://www.recipesoup.app"
+      : "http://localhost:5173",
   credentials: true,
 };
 
