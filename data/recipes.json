@@ -7,7 +7,7 @@
       "image": {
         "bucket": "jnb-recipe-book-bucket",
         "key": "image/3ff598dc-743d-4749-b305-9f618a1cd2bb.jpg",
-        "url": "https://jnb-recipe-book-bucket.s3.us-west-1.amazonaws.com/image/fdc56f28-9af2-4aaf-92ac-481173f1c851.jpg"
+        "url": "https://jnb-recipe-soup-bucket.s3.us-west-1.amazonaws.com/image/fdc56f28-9af2-4aaf-92ac-481173f1c851.jpg"
       },
       "ingredients": [
         { "text": "6 tablespoons ketchup", "index": 0 },
@@ -79,7 +79,7 @@
       "image": {
         "bucket": "jnb-recipe-book-bucket",
         "key": "image/3ff598dc-743d-4749-b305-9f618a1cd2bb.jpg",
-        "url": "https://jnb-recipe-book-bucket.s3.us-west-1.amazonaws.com/image/3ff598dc-743d-4749-b305-9f618a1cd2bb.jpg"
+        "url": "https://jnb-recipe-soup-bucket.s3.us-west-1.amazonaws.com/image/3ff598dc-743d-4749-b305-9f618a1cd2bb.jpg"
       },
       "ingredients": [
         { "text": "2 pounds boneless chuck", "index": 0 },
@@ -177,7 +177,7 @@
       "image": {
         "bucket": "jnb-recipe-book-bucket",
         "key": "image/2c88943c-2acd-49a2-abe1-075c9e5495a9.jpg",
-        "url": "https://jnb-recipe-book-bucket.s3.us-west-1.amazonaws.com/image/2c88943c-2acd-49a2-abe1-075c9e5495a9.jpg"
+        "url": "https://jnb-recipe-soup-bucket.s3.us-west-1.amazonaws.com/image/2c88943c-2acd-49a2-abe1-075c9e5495a9.jpg"
       },
       "ingredients": [
         { "text": "Salt", "index": 0 },
@@ -236,7 +236,7 @@
       "image": {
         "bucket": "jnb-recipe-book-bucket",
         "key": "image/634701bc-0ff9-4bfa-a74c-3be007161ce3.jpg",
-        "url": "https://jnb-recipe-book-bucket.s3.us-west-1.amazonaws.com/image/634701bc-0ff9-4bfa-a74c-3be007161ce3.jpg"
+        "url": "https://jnb-recipe-soup-bucket.s3.us-west-1.amazonaws.com/image/634701bc-0ff9-4bfa-a74c-3be007161ce3.jpg"
       },
       "ingredients": [
         {

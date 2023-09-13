@@ -9,7 +9,8 @@ async function seed() {
     id: userId,
     username: "Demo",
     email: "demo@email.com",
-    password: "$2b$10$FGVk6x/sZ2Fe99SEu3nF6uYJDovlxWHAAjOLiE0HUU4O/3B/OJwLC",
+    password: "$2b$10$vThI1E7jeGEX6DuBqqtGGuSCoFSCyHgC5QYZqtttm6RoY2OewbgdS",
+    isVerified: true,
   });
 
   await Promise.all(
