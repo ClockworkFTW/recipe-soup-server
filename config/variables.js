@@ -1,14 +1,17 @@
 const port = process.env.PORT;
 
-const environment = process.env.NODE_ENV;
+const env = process.env.NODE_ENV;
 
-const corsOptions = {
-  origin:
-    environment === "production"
-      ? "https://www.recipesoup.app"
-      : "http://localhost:5173",
-  credentials: true,
-};
+const url =
+  env === "production"
+    ? {
+        client: "https://www.recipesoup.app",
+        server: "https://www.recipesoup.app/api",
+      }
+    : {
+        client: "http://localhost:5173",
+        server: "http://localhost:3000",
+      };
 
 const jwt = {
   access: {
@@ -36,7 +39,7 @@ const jwt = {
 };
 
 const postgres =
-  environment === "production"
+  env === "production"
     ? {
         database: process.env.POSTGRES_PROD_DATABASE,
         user: process.env.POSTGRES_PROD_USER,
@@ -73,8 +76,8 @@ const mailer = {
 
 export default {
   port,
-  environment,
-  corsOptions,
+  env,
+  url,
   jwt,
   postgres,
   aws,

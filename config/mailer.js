@@ -31,7 +31,7 @@ async function sendVerificationLink({ user, token }) {
     subject: "Verify your RecipeSoup email",
     context: {
       name: user.username,
-      link: `http://localhost:3000/api/auth/verify-email/${token}`,
+      link: `${variables.url.server}/auth/verify-email/${token}`,
     },
   };
   try {
@@ -50,7 +50,7 @@ async function sendResetLink({ user, token }) {
     subject: "Reset your RecipeSoup password",
     context: {
       name: user.username,
-      link: `http://localhost:5173/reset-password?token=${token}`,
+      link: `${variables.url.client}/reset-password?token=${token}`,
     },
   };
   try {
