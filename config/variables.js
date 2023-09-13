@@ -40,6 +40,12 @@ const postgres =
         password: process.env.POSTGRES_PROD_PASSWORD,
         host: process.env.POSTGRES_PROD_HOST,
         port: process.env.POSTGRES_PROD_PORT,
+        dialectOptions: {
+          ssl: {
+            require: true,
+            rejectUnauthorized: false,
+          },
+        },
       }
     : {
         database: process.env.POSTGRES_DEV_DATABASE,
@@ -47,6 +53,7 @@ const postgres =
         password: process.env.POSTGRES_DEV_PASSWORD,
         host: process.env.POSTGRES_DEV_HOST,
         port: process.env.POSTGRES_DEV_PORT,
+        dialectOptions: {},
       };
 
 const aws = {

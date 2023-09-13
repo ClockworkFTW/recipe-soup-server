@@ -14,6 +14,7 @@ const sequelize = new Sequelize(
   {
     host: variables.postgres.host,
     port: variables.postgres.port,
+    dialectOptions: variables.postgres.dialectOptions,
     dialect: "postgres",
     logging: false,
   }
