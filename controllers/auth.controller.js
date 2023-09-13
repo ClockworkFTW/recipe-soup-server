@@ -103,7 +103,7 @@ async function verifyEmail(req, res) {
 
   await models.User.update({ isVerified: true }, { where: { id: user.id } });
 
-  res.redirect("http://localhost:5173/login");
+  res.redirect(`${variables.url.client}/#/login`);
 }
 
 async function forgotPassword(req, res) {
