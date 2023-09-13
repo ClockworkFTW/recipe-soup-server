@@ -12,8 +12,7 @@ sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
     seed();
   }
 
-  app.listen(variables.port, () => {
-    console.log(`Server listening on port ${variables.port}`);
-    console.log(process.env.CA_CERT); // TODO: remove
-  });
+  app.listen(variables.port, () =>
+    console.log(`Server listening on port ${variables.port}`)
+  );
 });
