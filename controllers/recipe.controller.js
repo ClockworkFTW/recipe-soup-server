@@ -2,7 +2,9 @@ import models from "../config/postgres.js";
 import { uploadFile } from "../config/aws.js";
 
 async function getRecipes(req, res) {
-  const recipes = await models.Recipe.findAll();
+  const recipes = await models.Recipe.findAll({
+    where: { userId: req.userId },
+  });
 
   const test = await Promise.all(
     recipes.map(async (recipe) => {
@@ -27,8 +29,8 @@ async function getRecipe(req, res) {
     ],
   });
 
-  if (!recipe) {
-    throw new Error("Recipe not found");
+  if (!recipe || recipe.userId !== req.userId) {
+    throw new Error("Recipe could not be found");
   }
 
   const { url } = await models.Image.findOne({ where: { recipeId } });
@@ -37,7 +39,10 @@ async function getRecipe(req, res) {
 }
 
 async function createRecipe(req, res) {
-  const recipe = await models.Recipe.create(req.body);
+  const recipe = await models.Recipe.create({
+    ...req.body,
+    userId: req.userId,
+  });
 
   const recipeId = recipe.id;
 
@@ -67,8 +72,8 @@ async function updateRecipe(req, res) {
 
   const recipe = models.Recipe.findByPk(recipeId);
 
-  if (!recipe) {
-    throw new Error("Recipe not found");
+  if (!recipe || recipe.userId !== req.userId) {
+    throw new Error("Recipe could not be updated");
   }
 
   await models.Recipe.update(req.body, { where: { id: recipeId } });
@@ -106,8 +111,8 @@ async function deleteRecipe(req, res) {
 
   const recipe = await models.Recipe.findByPk(recipeId);
 
-  if (!recipe) {
-    throw new Error("Recipe not found");
+  if (!recipe || recipe.userId !== req.userId) {
+    throw new Error("Recipe could not be deleted");
   }
 
   await recipe.destroy();
