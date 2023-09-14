@@ -1,13 +1,15 @@
 import express from "express";
 
-import authRouter from "./auth.route.js";
-import recipeRouter from "./recipe.route.js";
+import authRoute from "./auth.route.js";
+import userRoute from "./user.route.js";
+import recipeRoute from "./recipe.route.js";
 
 const router = express.Router();
 
 router.get("/status", (req, res) => res.send("OK"));
 
-router.use("/auth", authRouter);
-router.use("/recipe", recipeRouter);
+router.use("/auth", authRoute);
+router.use("/user", userRoute);
+router.use("/recipe", recipeRoute);
 
 export default router;

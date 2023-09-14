@@ -8,7 +8,7 @@ async function seed() {
   await models.User.create({
     id: userId,
     username: "Demo",
-    email: "demo@email.com",
+    email: "demo@recipesoup.app",
     password: "$2b$10$vThI1E7jeGEX6DuBqqtGGuSCoFSCyHgC5QYZqtttm6RoY2OewbgdS",
     isVerified: true,
   });
