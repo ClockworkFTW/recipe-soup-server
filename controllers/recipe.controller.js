@@ -1,13 +1,24 @@
+import { Op } from "sequelize";
 import models from "../config/postgres.js";
 import { uploadFile } from "../config/aws.js";
 
 async function getRecipes(req, res) {
-  const recipes = await models.Recipe.findAll({
-    where: { userId: req.userId },
+  const { page, query, sort } = req.query;
+
+  const limit = 9;
+  const offset = limit * (page - 1);
+  const name = { [Op.iLike]: "%" + query || "" + "%" };
+  const order = sort === "new" ? [] : [[sort, "DESC"]];
+
+  const { count, rows } = await models.Recipe.findAndCountAll({
+    where: { userId: req.userId, name },
+    offset,
+    limit,
+    order,
   });
 
-  const test = await Promise.all(
-    recipes.map(async (recipe) => {
+  const recipes = await Promise.all(
+    rows.map(async (recipe) => {
       const { url } = await models.Image.findOne({
         where: { recipeId: recipe.id },
       });
@@ -15,7 +26,7 @@ async function getRecipes(req, res) {
     })
   );
 
-  res.send(test);
+  res.send({ count, recipes });
 }
 
 async function getRecipe(req, res) {

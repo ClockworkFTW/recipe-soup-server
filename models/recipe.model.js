@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export default (sequelize, { DataTypes }) => {
   const Recipe = sequelize.define("recipe", {
     id: {
@@ -18,6 +20,9 @@ export default (sequelize, { DataTypes }) => {
     cuisine: {
       type: DataTypes.STRING,
     },
+    time: {
+      type: DataTypes.INTEGER,
+    },
     cookTime: {
       type: DataTypes.STRING,
     },
@@ -30,6 +35,30 @@ export default (sequelize, { DataTypes }) => {
     servings: {
       type: DataTypes.INTEGER,
     },
+  });
+
+  Recipe.beforeCreate((recipe) => {
+    const prepTime = recipe.prepTime
+      ? moment.duration(recipe.prepTime).asSeconds()
+      : 0;
+
+    const cookTime = recipe.cookTime
+      ? moment.duration(recipe.cookTime).asSeconds()
+      : 0;
+
+    recipe.time = prepTime + cookTime;
+  });
+
+  Recipe.beforeUpdate((recipe) => {
+    const prepTime = recipe.prepTime
+      ? moment.duration(recipe.prepTime).asSeconds()
+      : 0;
+
+    const cookTime = recipe.cookTime
+      ? moment.duration(recipe.cookTime).asSeconds()
+      : 0;
+
+    recipe.time = prepTime + cookTime;
   });
 
   Recipe.associate = (models) => {
