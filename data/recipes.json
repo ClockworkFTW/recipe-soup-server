@@ -5,8 +5,8 @@
       "prepTime": null,
       "cookTime": "PT30M",
       "image": {
-        "bucket": "jnb-recipe-book-bucket",
-        "key": "image/3ff598dc-743d-4749-b305-9f618a1cd2bb.jpg",
+        "bucket": "jnb-recipe-soup-bucket",
+        "key": "image/fdc56f28-9af2-4aaf-92ac-481173f1c851.jpg",
         "url": "https://jnb-recipe-soup-bucket.s3.us-west-1.amazonaws.com/image/fdc56f28-9af2-4aaf-92ac-481173f1c851.jpg"
       },
       "ingredients": [
@@ -77,7 +77,7 @@
       "prepTime": "PT20M",
       "cookTime": "PT3H30M",
       "image": {
-        "bucket": "jnb-recipe-book-bucket",
+        "bucket": "jnb-recipe-soup-bucket",
         "key": "image/3ff598dc-743d-4749-b305-9f618a1cd2bb.jpg",
         "url": "https://jnb-recipe-soup-bucket.s3.us-west-1.amazonaws.com/image/3ff598dc-743d-4749-b305-9f618a1cd2bb.jpg"
       },
@@ -175,7 +175,7 @@
       "prepTime": "PT10M",
       "cookTime": "PT10M",
       "image": {
-        "bucket": "jnb-recipe-book-bucket",
+        "bucket": "jnb-recipe-soup-bucket",
         "key": "image/2c88943c-2acd-49a2-abe1-075c9e5495a9.jpg",
         "url": "https://jnb-recipe-soup-bucket.s3.us-west-1.amazonaws.com/image/2c88943c-2acd-49a2-abe1-075c9e5495a9.jpg"
       },
@@ -234,7 +234,7 @@
       "prepTime": "PT25M",
       "cookTime": "PT20M",
       "image": {
-        "bucket": "jnb-recipe-book-bucket",
+        "bucket": "jnb-recipe-soup-bucket",
         "key": "image/634701bc-0ff9-4bfa-a74c-3be007161ce3.jpg",
         "url": "https://jnb-recipe-soup-bucket.s3.us-west-1.amazonaws.com/image/634701bc-0ff9-4bfa-a74c-3be007161ce3.jpg"
       },
@@ -291,6 +291,136 @@
       "category": "Dinner",
       "rating": 5,
       "servings": 8
+    },
+    {
+      "name": "French Onion Soup",
+      "prepTime": null,
+      "cookTime": "PT1H20M",
+      "image": {
+        "bucket": "jnb-recipe-soup-bucket",
+        "key": "image/88529527-785f-45c7-8859-cc732b97fd5b.jpg",
+        "url": "https://jnb-recipe-soup-bucket.s3.us-west-1.amazonaws.com/image/88529527-785f-45c7-8859-cc732b97fd5b.jpg"
+      },
+      "ingredients": [
+        { "text": "3 tablespoons unsalted butter", "index": 0 },
+        {
+          "text": "3 to 4 large red or yellow onions (about 3 pounds), peeled and thinly sliced",
+          "index": 1
+        },
+        { "text": "¾ teaspoon kosher salt, plus more to taste", "index": 2 },
+        { "text": "2 quarts beef stock (8 cups)", "index": 3 },
+        { "text": "1 cup dry white wine", "index": 4 },
+        { "text": "1 tablespoon dry sherry", "index": 5 },
+        { "text": "1 tablespoon all-purpose flour", "index": 6 },
+        { "text": "½ teaspoon black pepper, plus more to taste", "index": 7 },
+        {
+          "text": "8 to 12(½-inch) slices French bread (from 1 loaf)",
+          "index": 8
+        },
+        { "text": "1½cups grated Gruyère cheese", "index": 9 }
+      ],
+      "instructions": [
+        {
+          "type": "step",
+          "index": 0,
+          "text": "Melt butter in a heavy Dutch oven over medium heat. Add onions and ½ teaspoon salt, stir and cover, letting onions soften for 5 minutes. Remove lid and let onions caramelize until golden brown over medium heat, stirring occasionally. Adjust heat if onions are browning too quickly. The caramelization process may take 45 to 60 minutes."
+        },
+        {
+          "type": "step",
+          "index": 1,
+          "text": "Meanwhile, warm broth in a saucepan over low heat."
+        },
+        {
+          "type": "step",
+          "index": 2,
+          "text": "Once onions are caramelized, add wine and sherry to the pot and allow mixture to come to boil. Stir in flour and let thicken for a minute or two."
+        },
+        {
+          "type": "step",
+          "index": 3,
+          "text": "Slowly add warm broth, ¼ teaspoon salt and the pepper to the onion mixture and boil uncovered for 10 minutes. Add more salt and pepper to taste."
+        },
+        {
+          "type": "step",
+          "index": 4,
+          "text": "Heat the broiler, and arrange individual ovenproof casseroles on a baking sheet. Ladle soup into casseroles, and cover top with bread slices. Sprinkle each casserole generously with Gruyère. Broil for a minute or two, watching carefully, until cheese melts and browns. Serve immediately."
+        }
+      ],
+      "cuisine": "French",
+      "category": "Dinner",
+      "rating": 5,
+      "servings": 4
+    },
+    {
+      "name": "Paella",
+      "prepTime": "PT15M",
+      "cookTime": "PT45M",
+      "image": {
+        "bucket": "jnb-recipe-soup-bucket",
+        "key": "image/c4254a6f-d50a-489a-9170-d5d82e204117.jpg",
+        "url": "https://jnb-recipe-soup-bucket.s3.us-west-1.amazonaws.com/image/c4254a6f-d50a-489a-9170-d5d82e204117.jpg"
+      },
+      "ingredients": [
+        {
+          "text": "30 threads saffron lightly crushed, about 1/2 tsp",
+          "index": 0
+        },
+        {
+          "text": "1/4 cup neutral oil high heat such as grapeseed preferred",
+          "index": 1
+        },
+        { "text": "2 links Spanish chorizo sliced", "index": 2 },
+        { "text": "4 bone in skin on chicken thighs", "index": 3 },
+        { "text": "10-12 large shrimp peeled and deveined", "index": 4 },
+        { "text": "1 small onion minced, about 1 cup", "index": 5 },
+        { "text": "3 cloves garlic crushed", "index": 6 },
+        {
+          "text": "3 medium tomatoes diced or grated, about 2 cups",
+          "index": 7
+        },
+        {
+          "text": "1 tbsp smoked paprika",
+          "index": 8
+        },
+        { "text": "6 cups chicken broth no sodium preferred", "index": 9 },
+        { "text": "2.5 cups bomba rice", "index": 10 },
+        {
+          "text": "1 red or orange pepper sliced into 1 inch strips",
+          "index": 11
+        },
+        { "text": "12 clams", "index": 12 }
+      ],
+      "instructions": [
+        {
+          "type": "step",
+          "index": 0,
+          "text": "Stir the saffron into 1⁄4 cup hot water in a small bowl and let bloom for 15 minutes."
+        },
+        {
+          "type": "step",
+          "index": 1,
+          "text": "In a 16″–18″ paella pan, heat the oil over medium-high heat. Add the chorizo and the chicken, skin side down. Add the the shrimp and cook, flipping occasionally, until browned, about 5 minutes, then transfer the shrimp to a plate, leaving the meats to sear in the pan."
+        },
+        {
+          "type": "step",
+          "index": 2,
+          "text": "Add the onions, garlic, tomatoes, and paprika and cook, stirring often, until the onions soften, about 6 minutes. Add the saffron and 4 cups of chicken stock. Flip the chicken so it’s skin side up and bring everything to a boil over high heat."
+        },
+        {
+          "type": "step",
+          "index": 3,
+          "text": "Sprinkle in the rice, distributing evenly, then add the peppers on top. Cook, uncovered, without stirring, until rice has absorbed most of the liquid, about 12-15 minutes. If the pan is larger than the burner, rotate it every two minutes to evenly distribute the heat. Once the stock is low enough, add the remaining 2 cups chicken stock."
+        },
+        {
+          "type": "step",
+          "index": 4,
+          "text": "Reduce heat to low, and top with the cooked shrimp. Nestle in the clams, hinge side down. Continue to cook, without covering or stirring, until the clams opened and the rice absorbs the liquid and is al dente, 5–10 minutes more. Turn heat to high for 1-2 minutes to create the socarrat. Remove pan from heat, cover with aluminum foil, and let sit for 5 minutes before enjoying."
+        }
+      ],
+      "cuisine": "Spanish",
+      "category": "Dinner",
+      "rating": 3,
+      "servings": 6
     }
   ]
 }
