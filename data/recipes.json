@@ -421,6 +421,175 @@
       "category": "Dinner",
       "rating": 3,
       "servings": 6
+    },
+    {
+      "name": "Bibimbap",
+      "prepTime": "PT40M",
+      "cookTime": "PT30M",
+      "image": {
+        "bucket": "jnb-recipe-soup-bucket",
+        "key": "image/5edd06ff-dc28-43d0-ad0b-370d7984f335.jpg",
+        "url": "https://jnb-recipe-soup-bucket.s3.us-west-1.amazonaws.com/image/5edd06ff-dc28-43d0-ad0b-370d7984f335.jpg"
+      },
+      "ingredients": [
+        {
+          "text": "4 cups cooked white rice , preferably short grain",
+          "index": 0
+        },
+        {
+          "text": "4 eggs",
+          "index": 1
+        },
+        { "text": "2 tsp sesame seeds", "index": 2 },
+        {
+          "text": "250 g/8oz beef tenderloin or thick steak , very finely sliced",
+          "index": 3
+        },
+        { "text": "1/4 green apple , grated using box grater", "index": 4 },
+        { "text": "3 garlic cloves , minced", "index": 5 },
+        { "text": "1 tbsp soy sauce , light or all purpose", "index": 6 },
+        {
+          "text": "1 tbsp honey (or brown sugar)",
+          "index": 7
+        },
+        {
+          "text": "2 tsp sesame oil , toasted",
+          "index": 8
+        },
+        { "text": "2 carrots , large, cut into thin strips", "index": 9 },
+        { "text": "2 zucchini , large, cut into thin strips", "index": 10 },
+        {
+          "text": "1 bunch of spinach",
+          "index": 11
+        },
+        { "text": "8 dried shiitake mushrooms", "index": 12 },
+        { "text": "4 cups bean sprouts", "index": 13 },
+        { "text": "2 tsp garlic", "index": 14 },
+        { "text": "8 tsp vegetable oil", "index": 15 },
+        { "text": "1/2 tsp salt", "index": 16 },
+        { "text": "1.5 tsp soy sauce", "index": 17 },
+        { "text": "1/4 tsp fish sauce", "index": 18 },
+        { "text": "1/4 tsp white sugar", "index": 19 },
+        { "text": "Sesame oil, toasted", "index": 20 },
+        { "text": "4 tbsp gochujang paste", "index": 21 },
+        { "text": "2 tbsp mirin", "index": 22 },
+        { "text": "2 tbsp rice vinegar", "index": 23 },
+        { "text": "1.5 tsp soy sauce", "index": 24 },
+        { "text": "3 tsp white sugar", "index": 25 },
+        { "text": "1 garlic clove", "index": 26 },
+        { "text": "2.5 tsp sesame oil", "index": 27 }
+      ],
+      "instructions": [
+        {
+          "type": "section",
+          "index": 0,
+          "text": "Bibimbap Sauce"
+        },
+        {
+          "type": "step",
+          "index": 1,
+          "text": "Mix ingredients until sugar is dissolved."
+        },
+        {
+          "type": "section",
+          "index": 2,
+          "text": "Marinated Beef"
+        },
+        {
+          "type": "step",
+          "index": 3,
+          "text": "Mix the marinade in a bowl, then add beef. Marinate for 30 minutes to overnight."
+        },
+        {
+          "type": "step",
+          "index": 4,
+          "text": "Heat 2 tsp oil in a large skillet over high heat. Let excess marinade drip off then add beef. Cook for 3 - 4 minutes until cooked and there's some caramelized bits, then remove from skillet."
+        },
+        {
+          "type": "step",
+          "index": 5,
+          "text": "Keep warm until required or reheat to warm."
+        },
+        {
+          "type": "section",
+          "index": 6,
+          "text": "Prepare Vegetables"
+        },
+        {
+          "type": "step",
+          "index": 7,
+          "text": "Soak mushrooms in a large bowl of boiling water for 30 minutes, or until rehydrated. Drain, squeeze out excess water, then slice."
+        },
+        {
+          "type": "step",
+          "index": 8,
+          "text": "Place carrot and zucchini in separate bowls, sprinkle each with 1/4 tsp salt, toss, leave for 20 minutes then drain excess liquid."
+        },
+        {
+          "type": "section",
+          "index": 9,
+          "text": "Cook Vegetables"
+        },
+        {
+          "type": "step",
+          "index": 10,
+          "text": "Heat 2 tsp oil oil in a skillet over medium high heat. Cook mushrooms for 2 minutes. Add 1.5 tsp soy, 1/4 tsp sugar, 1/2 tsp of garlic. Stir for 1 minute, then remove."
+        },
+        {
+          "type": "step",
+          "index": 11,
+          "text": "Add 2 tsp oil into the skillet, cook carrot until just tender (5 to 8 minutes), then remove."
+        },
+        {
+          "type": "step",
+          "index": 12,
+          "text": "Cook as with carrot for 4 minutes."
+        },
+        {
+          "type": "step",
+          "index": 13,
+          "text": "Heat 2 tsp veg with a splash of sesame oil. Saute until starting to wilt. Add 1/2 tsp garlic, and salt to taste, stir, then remove. When cool, squeeze to drain out excess liquid."
+        },
+        {
+          "type": "step",
+          "index": 14,
+          "text": "Simmer in water for 5 min or steam in microwave for 3 min until floppy. Drain under cold water, then cool. Squeeze out excess liquid with hands, place in bowl. Mix with 2 tsp sesame oil, 1 tsp garlic, 1/4 tsp fish sauce."
+        },
+        {
+          "type": "step",
+          "index": 15,
+          "text": "Vegetables can cool, they are meant to be at room temp or slightly warm."
+        },
+        {
+          "type": "section",
+          "index": 16,
+          "text": "Assemble"
+        },
+        {
+          "type": "step",
+          "index": 17,
+          "text": "Fry eggs in a skillet to your taste (I like mine with runny yolks)."
+        },
+        {
+          "type": "step",
+          "index": 18,
+          "text": "Place warm rice in bowls."
+        },
+        {
+          "type": "step",
+          "index": 19,
+          "text": "Top with vegetables and beef, as pictured in post, then lastly, the egg."
+        },
+        {
+          "type": "step",
+          "index": 20,
+          "text": "Sprinkle with sesame seeds, drizzled with sesame oil. Serve with Bibimbap Sauce!"
+        }
+      ],
+      "cuisine": "South Korean",
+      "category": "Dinner",
+      "rating": 4,
+      "servings": 4
     }
   ]
 }
