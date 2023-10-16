@@ -11,7 +11,7 @@ function validateToken(req, res, next) {
 
     next();
   } catch (error) {
-    return res.status(403).send({ message: error });
+    return res.status(403).send({ message: "Invalid token" });
   }
 }
 

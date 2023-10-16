@@ -50,7 +50,7 @@ async function sendResetLink({ user, token }) {
     subject: "Reset your RecipeSoup password",
     context: {
       name: user.username,
-      link: `${variables.url.client}/reset-password?token=${token}`,
+      link: `${variables.url.client}/#/reset-password?token=${token}`,
     },
   };
   try {

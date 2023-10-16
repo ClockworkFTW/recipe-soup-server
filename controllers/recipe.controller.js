@@ -31,16 +31,22 @@ async function getRecipes(req, res) {
 
 async function getRecipe(req, res) {
   const { recipeId } = req.params;
+  // const { userId } = req.auth;
 
-  const recipe = await models.Recipe.findByPk(recipeId, {
-    include: [models.Ingredient, models.Instruction],
+  const recipe = await models.Recipe.findOne({
+    where: { id: recipeId, userId: req.userId },
+    attributes: { exclude: ["id", "userId", "time", "createdAt", "updatedAt"] },
+    include: [
+      { model: models.Ingredient, attributes: ["index", "text"] },
+      { model: models.Instruction, attributes: ["index", "type", "text"] },
+    ],
     order: [
       [models.Ingredient, "index", "ASC"],
       [models.Instruction, "index", "ASC"],
     ],
   });
 
-  if (!recipe || recipe.userId !== req.userId) {
+  if (!recipe) {
     throw new Error("Recipe could not be found");
   }
 
@@ -81,7 +87,7 @@ async function createRecipe(req, res) {
 async function updateRecipe(req, res) {
   const { recipeId } = req.params;
 
-  const recipe = models.Recipe.findByPk(recipeId);
+  const recipe = await models.Recipe.findByPk(recipeId);
 
   if (!recipe || recipe.userId !== req.userId) {
     throw new Error("Recipe could not be updated");

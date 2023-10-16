@@ -31,7 +31,6 @@ export default (sequelize, { DataTypes }) => {
   });
 
   Image.afterDestroy(async ({ bucket, key }) => {
-    console.log("DESTROY IMAGE");
     await deleteFile({ bucket, key });
   });
 

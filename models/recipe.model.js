@@ -14,9 +14,6 @@ export default (sequelize, { DataTypes }) => {
         notEmpty: true,
       },
     },
-    description: {
-      type: DataTypes.STRING,
-    },
     cuisine: {
       type: DataTypes.STRING,
     },
