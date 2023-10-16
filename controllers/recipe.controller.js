@@ -3,6 +3,7 @@ import models from "../config/postgres.js";
 import { uploadFile } from "../config/aws.js";
 
 async function getRecipes(req, res) {
+  const { userId } = req.auth;
   const { page, query, sort } = req.query;
 
   const limit = 9;
@@ -11,7 +12,7 @@ async function getRecipes(req, res) {
   const order = sort === "new" ? [] : [[sort, "DESC"]];
 
   const { count, rows } = await models.Recipe.findAndCountAll({
-    where: { userId: req.userId, name },
+    where: { userId, name },
     offset,
     limit,
     order,
@@ -30,11 +31,11 @@ async function getRecipes(req, res) {
 }
 
 async function getRecipe(req, res) {
+  const { userId } = req.auth;
   const { recipeId } = req.params;
-  // const { userId } = req.auth;
 
   const recipe = await models.Recipe.findOne({
-    where: { id: recipeId, userId: req.userId },
+    where: { id: recipeId, userId },
     attributes: { exclude: ["id", "userId", "time", "createdAt", "updatedAt"] },
     include: [
       { model: models.Ingredient, attributes: ["index", "text"] },
@@ -56,10 +57,7 @@ async function getRecipe(req, res) {
 }
 
 async function createRecipe(req, res) {
-  const recipe = await models.Recipe.create({
-    ...req.body,
-    userId: req.userId,
-  });
+  const recipe = await models.Recipe.create({ ...req.body, userId });
 
   const recipeId = recipe.id;
 
@@ -85,11 +83,12 @@ async function createRecipe(req, res) {
 }
 
 async function updateRecipe(req, res) {
+  const { userId } = req.auth;
   const { recipeId } = req.params;
 
   const recipe = await models.Recipe.findByPk(recipeId);
 
-  if (!recipe || recipe.userId !== req.userId) {
+  if (!recipe || recipe.userId !== userId) {
     throw new Error("Recipe could not be updated");
   }
 
@@ -124,11 +123,12 @@ async function updateRecipe(req, res) {
 }
 
 async function deleteRecipe(req, res) {
+  const { userId } = req.auth;
   const { recipeId } = req.params;
 
   const recipe = await models.Recipe.findByPk(recipeId);
 
-  if (!recipe || recipe.userId !== req.userId) {
+  if (!recipe || recipe.userId !== userId) {
     throw new Error("Recipe could not be deleted");
   }
 

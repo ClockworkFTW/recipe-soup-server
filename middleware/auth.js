@@ -7,7 +7,7 @@ function validateToken(req, res, next) {
       req.headers.authorization.substring(7, req.headers.authorization.length);
 
     const decoded = authService.verifyToken({ type: "access", token });
-    req.userId = decoded.sub;
+    req.auth = { userId: decoded.sub };
 
     next();
   } catch (error) {
