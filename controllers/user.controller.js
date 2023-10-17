@@ -12,7 +12,9 @@ async function getUser(req, res) {
     throw new Error("User not found");
   }
 
-  res.send(user);
+  const recipeCount = await models.Recipe.count({ where: { userId } });
+
+  res.send({ ...user.toJSON(), recipeCount });
 }
 
 async function updateUser(req, res) {
